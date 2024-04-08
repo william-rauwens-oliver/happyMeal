@@ -30,40 +30,46 @@ const recipes = [
        ]
     }
  ];
- 
- function showRecipeDetails(recipeId) {
-     const recipe = recipes[recipeId - 1];
-     if (recipe) {
-         document.getElementById("recipe-name").textContent = recipe.nom;
-         let ingredientsList = "";
-         recipe.ingredients.forEach(ingredient => {
-             ingredientsList += `${ingredient.nom} (${ingredient.quantite}), `;
-         });
-         ingredientsList = ingredientsList.slice(0, -2);
-         document.getElementById("recipe-ingredients").textContent = ingredientsList;
-         document.getElementById("recipe-cooking-time").textContent = recipe.temps_preparation;
-         const stepsList = document.getElementById("recipe-steps");
-         stepsList.innerHTML = "";
-         recipe.etapes.forEach((step, index) => {
-             const li = document.createElement("li");
-             li.textContent = `${index + 1}. ${step}`;
-             stepsList.appendChild(li);
-         });
-         document.getElementById("recipe-details").style.display = "block";
-         document.getElementById("favorite-btn").textContent = isFavorite(recipeId) ? "Remove from Favorites" : "Add to Favorites";
-     }
- }
-  function isFavorite(recipeId) {
-     return favorites.includes(recipeId);
- }
- function toggleFavorite(recipeId) {
-     const index = favorites.indexOf(recipeId);
-     if (index !== -1) {
-         favorites.splice(index, 1);
-     } else {
-         favorites.push(recipeId);
-     }
-     document.getElementById("favorite-btn").textContent = isFavorite(recipeId) ? "Remove from Favorites" : "Add to Favorites";
- }
- 
- let favorites = [];
+
+function showRecipeDetails(recipeId) {
+    const recipe = recipes[recipeId - 1];
+    if (recipe) {
+        document.getElementById("recipe-name").textContent = recipe.nom;
+        let ingredientsList = "";
+        recipe.ingredients.forEach(ingredient => {
+            ingredientsList += `${ingredient.nom} (${ingredient.quantite}), `;
+        });
+        ingredientsList = ingredientsList.slice(0, -2);
+        document.getElementById("recipe-ingredients").textContent = ingredientsList;
+        document.getElementById("recipe-cooking-time").textContent = recipe.temps_preparation;
+        const stepsList = document.getElementById("recipe-steps");
+        stepsList.innerHTML = "";
+        recipe.etapes.forEach((step, index) => {
+            const li = document.createElement("li");
+            li.textContent = `${index + 1}. ${step}`;
+            stepsList.appendChild(li);
+        });
+        document.getElementById("recipe-details").style.display = "block";
+        document.getElementById("favorite-btn").textContent = isFavorite(recipeId) ? "Remove from Favorites" : "Add to Favorites";
+    }
+}
+
+function isFavorite(recipeId) {
+    return favorites.includes(recipeId);
+}
+
+function toggleFavorite(recipeId) {
+    const index = favorites.indexOf(recipeId);
+    if (index !== -1) {
+        favorites.splice(index, 1);
+    } else {
+        favorites.push(recipeId);
+    }
+    document.getElementById("favorite-btn").textContent = isFavorite(recipeId) ? "Remove from Favorites" : "Add to Favorites";
+}
+
+function hideRecipeDetails() {
+    document.getElementById("recipe-details").style.display = "none";
+}
+
+let favorites = [];

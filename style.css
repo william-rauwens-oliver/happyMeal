@@ -1,0 +1,25 @@
+body {
+    background-color: #f5f5f5;
+}
+.recipe {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.recipe:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.recipe .card-content {
+    padding: 16px;
+}
+.recipe h5 {
+    margin-top: 0;
+}
+.recipe .add-favorite {
+    color: #f44336;
+}
+.recipe .add-favorite:hover {
+    color: #b71c1c;
+}
