@@ -23,12 +23,16 @@
         }
 
         .recipe-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             cursor: pointer;
-            margin-bottom: 20px; /* Ajout de la marge entre les cartes */
+            margin: 0 auto;
+            max-width: 400px; 
         }
 
         .recipe-card:hover {
@@ -42,16 +46,12 @@
         }
 
         .recipe-details {
-            display: none;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            margin-top: 20px; /* Ajout de la marge */
-        }
-
-        .recipe-details.active {
-            display: block;
+            margin: 20px auto;
+            max-width: 400px;
         }
 
         .recipe-details .card-title {
@@ -81,90 +81,65 @@
             text-transform: uppercase;
             text-decoration: none;
             transition: background-color 0.3s ease;
-            display: block;
-            margin: 0 auto;
+            margin-bottom: 10px;
         }
 
         .btn:hover {
             background-color: #e65100;
         }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+
+        .nav-arrow i {
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .nav-arrow.left {
+            left: 10px;
+        }
+
+        .nav-arrow.right {
+            right: 10px;
+        }
     </style>
 </head>
 <body>
-    <div class="m-4">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand"><img src="/assets/img/logo2.svg" alt=""></a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav">
-                        <a href="#" class="nav-item nav-link active ">Home</a>
-                        <a href="#" class="nav-item nav-link ">Recette</a>
-                        <a href="#" class="nav-item nav-link">Recette Pagination</a>
-                        <div class="nav-item dropdown">
-                            
-                        </div>
-                    </div>
-                    <form class="d-flex" autocomplete="off">
-                      <div class="input-group">
-                          <input type="text" class="form-control" id="search-input" placeholder="Search" onkeyup="searchRecipe(this.value)">
-                          <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
-                      </div>
-                      <div id="autocomplete-list" class="autocomplete-items"></div>
-                  </form>
-                </div>
-            </div>
-        </nav>
-    </div>
-
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="recipe-card" onclick="showRecipeDetails(1)">
-                    <div class="card-img-top">
-                        <img src="assets/img/roasted-butter-herb-chicken.jpg.jpeg" alt="Poulet rôti aux herbes">
-                    </div>
+        <div class="recipe-card" id="recipe-card">
+            <div class="nav-arrow left" onclick="prevRecipe()"><i class="fas fa-chevron-left"></i></div>
+            <div class="nav-arrow right" onclick="nextRecipe()"><i class="fas fa-chevron-right"></i></div>
+            <div class="recipe-details" id="recipe-details">
+                <div class="card">
                     <div class="card-body">
-                        <h5 style="color: #333; text-align: center;">Poulet rôti aux herbes</h5>
-                        <p style="color: #555; text-align: center;">Cliquer pour plus de détails</p>
+                        <h5 class="card-title" id="recipe-name">Poulet rôti aux herbes</h5>
+                        <p><strong>Ingredients:</strong> <span id="recipe-ingredients">Ingrédients</span></p>
+                        <p><strong>Cooking Time:</strong> <span id="recipe-cooking-time">Temps de cuisson</span></p>
+                        <p><strong>Steps:</strong></p>
+                        <ol id="recipe-steps">
+                            <li>Étape 1</li>
+                            <li>Étape 2</li>
+                            <li>Étape 3</li>
+                        </ol>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="recipe-card" onclick="showRecipeDetails(2)">
-                    <div class="card-img-top">
-                        <img src="assets/img/poulet roti2.webp" alt="Autre recette">
-                    </div>
-                    <div class="card-body">
-                        <h5 style="color: #333; text-align: center;">Poulet rôti aux herbes</h5>
-                        <p style="color: #555; text-align: center;">Cliquer pour plus de détails</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="recipe-details" id="recipe-details">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" id="recipe-name">Poulet rôti aux herbes</h5>
-                            <p><strong>Ingredients:</strong> <span id="recipe-ingredients">Ingrédients</span></p>
-                            <p><strong>Cooking Time:</strong> <span id="recipe-cooking-time">Temps de cuisson</span></p>
-                            <p><strong>Steps:</strong></p>
-                            <ol id="recipe-steps">
-                                <li>Étape 1</li>
-                                <li>Étape 2</li>
-                                <li>Étape 3</li>
-                            </ol>
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <a href="#" class="btn add-favorite" onclick="toggleFavorite(1)" id="favorite-btn"><i class="fas fa-heart"></i> Ajouter aux favoris</a>
-                            <a href="#" class="btn" onclick="hideRecipeDetails()" style="margin-top: 10px;"><i class="fas fa-times"></i> Fermer le Détail</a>
-                        </div>                                           
-                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <a href="#" class="btn add-favorite" onclick="toggleFavorite(currentRecipeIndex)" id="favorite-btn"><i class="fas fa-heart"></i> Ajouter aux favoris</a>
+                        <br>
+                        <a href="#" class="btn" onclick="hideRecipeDetails()"><i class="fas fa-times"></i> Fermer le Détail</a>
+                    </div>                                           
                 </div>
             </div>
         </div>
