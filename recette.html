@@ -1,50 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recettes</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .btn.add-favorite:focus,
+        .btn.add-favorite:active {
+            background-color: #ff6f00;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .recipe-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .recipe-details {
+            display: none;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .recipe-details.active {
+            display: block;
+        }
+
+        .recipe-details .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            text-align: center;
+        }
+
+        .recipe-details p {
+            margin-bottom: 10px;
+            color: #555;
+            text-align: center;
+        }
+
+        .recipe-details ol {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #ff6f00;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn:hover {
+            background-color: #e65100;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div id="recipe-list" class="row">
-            <div class="col s12 m6">
-                <div class="card recipe" onclick="showRecipeDetails(1)">
-                    <div class="card-image">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="recipe-card" onclick="showRecipeDetails(1)">
+                    <div class="card-img-top">
                         <img src="assets/img/roasted-butter-herb-chicken.jpg.jpeg" alt="Poulet rôti aux herbes">
                     </div>
-                    <div class="card-content">
-                        <h5>Poulet rôti aux herbes</h5>
-                        <p>Cliquer pour plus de détails</p>
-                    </div>
-                    <div class="card-action">
+                    <div class="card-body">
+                        <h5 style="color: #333; text-align: center;">Poulet rôti aux herbes</h5>
+                        <p style="color: #555; text-align: center;">Cliquer pour plus de détails</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="recipe-details" class="row" style="display: none;">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title" id="recipe-name"></span>
-                        <p><strong>Ingredients:</strong> <span id="recipe-ingredients"></span></p>
-                        <p><strong>Cooking Time:</strong> <span id="recipe-cooking-time"></span></p>
-                        <p><strong>Steps:</strong></p>
-                        <ol id="recipe-steps"></ol>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" class="add-favorite" onclick="toggleFavorite(1)" id="favorite-btn"><i class="fas fa-heart"></i> Add to Favorites</a>
-                        <a href="#" onclick="hideRecipeDetails()"><i class="fas fa-times"></i> Fermer le Détail</a>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="recipe-details" id="recipe-details">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" id="recipe-name">Poulet rôti aux herbes</h5>
+                            <p><strong>Ingredients:</strong> <span id="recipe-ingredients">Ingrédients</span></p>
+                            <p><strong>Cooking Time:</strong> <span id="recipe-cooking-time">Temps de cuisson</span></p>
+                            <p><strong>Steps:</strong></p>
+                            <ol id="recipe-steps">
+                                <li>Étape 1</li>
+                                <li>Étape 2</li>
+                                <li>Étape 3</li>
+                            </ol>
+                        </div>
+                        <div class="card-footer" style="text-align: center;">
+                            <a href="#" class="btn add-favorite" onclick="toggleFavorite(1)" id="favorite-btn"><i class="fas fa-heart"></i> Ajouter aux favoris</a>
+                            <a href="#" class="btn" onclick="hideRecipeDetails()" style="margin-top: 10px;"><i class="fas fa-times"></i> Fermer le Détail</a>
+                        </div>                                           
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
