@@ -49,3 +49,8 @@ footer>nav{
 footer>p{
   margin: 0px;
 }
+.recette{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
