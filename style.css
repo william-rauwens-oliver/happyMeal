@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
 }
 
 
@@ -77,3 +78,56 @@ main {
 .etapes li {
     margin-bottom: 5px;
 }
+
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  .footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 32px;
+  }
+  footer>nav>a{
+    text-decoration: none;
+    color: black;
+  }
+  footer>nav{
+    display: flex;
+    gap: 10px;
+  }
+  .bar{
+    width: 60%;
+    height: 1px;
+    background-color: rgb(223, 223, 223);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  footer>p{
+    margin: 0px;
+  }
+  .recetteX{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
