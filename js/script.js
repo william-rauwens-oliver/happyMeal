@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const recette2 = document.getElementById("recette2");
     const recette3 = document.getElementById("recette3");
 
-    fetch("data.json")
+    fetch("../assets/json/data.json")
         .then(response => response.json())
         .then(data => {
             const randomRecettes = getRandomRecettes(data.recettes, 3);
