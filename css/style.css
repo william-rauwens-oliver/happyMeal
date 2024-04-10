@@ -54,3 +54,15 @@ body{
     justify-content: center;
     flex-wrap: wrap;
   }
+.star{
+  width: 64px;
+  position: absolute;
+  right: 30%;
+  border: none;
+  background-color: white;
+  top: 10px;
+}
+
+.star-fav{
+  fill: yellow;
+}
