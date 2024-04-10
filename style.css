@@ -1,14 +1,13 @@
-/* Reset des styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Styles généraux */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
+
 
 header {
     background-color: #333;
@@ -55,7 +54,6 @@ main {
     margin-bottom: 10px;
 }
 
-/* Styles spécifiques pour les recettes */
 .recette {
     margin-bottom: 10px;
 }
