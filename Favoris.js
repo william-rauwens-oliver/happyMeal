@@ -49,4 +49,4 @@ function supprimerRecette(nom) {
   }
 }
 
-window.onload = chargerFavoris;
+window.onload = chargerFavoris; 
