@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('search-input').addEventListener('input', function() {
-        searchRecipe(this.value); // Appel à la fonction de recherche à chaque saisie
+        searchRecipe(this.value); 
     });
 });
 
@@ -15,7 +15,7 @@ function searchRecipe(inputText) {
     if (input.length < 1) {
         return;
     }
-    fetch('../assets/json/data.json') // Ajustez le chemin selon votre structure
+    fetch('../assets/json/data.json') 
         .then(response => response.json())
         .then(data => {
             data.recettes.forEach(recipe => {
