@@ -61,7 +61,6 @@
 
 <body>
     <div class="container">
-        <!-- Contenu de la barre de navigation -->
         <div class="m-4">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -79,8 +78,7 @@
                         </div>
                         <form class="d-flex" autocomplete="off">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="search-input" placeholder="Search"
-                                    onkeyup="searchRecipe(this.value)">
+                                <input type="text" class="form-control" id="search-input" placeholder="Search">
                                 <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
                             </div>
                             <div id="autocomplete-list" class="autocomplete-items"></div>
@@ -91,7 +89,9 @@
         </div>
 
         <h1 class="text-center mb-4">Recettes favorites</h1>
-        <div class="row" id="favoris"></div>
+        <div class="row" id="favoris">
+          
+        </div>
     </div>
 
     <footer class="footer">
@@ -106,5 +106,4 @@
 
     <script src="Favoris.js"></script>
 </body>
-
 </html>
