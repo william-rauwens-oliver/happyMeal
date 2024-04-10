@@ -34,3 +34,4 @@ function afficherFavoris(favoris) {
 }
 
 window.onload = chargerFavoris;
+
