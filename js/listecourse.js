@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('ingredients-container');
             for (const [nom, quantite] of Object.entries(uniqueIngredients)) {
                 const button = document.createElement('button');
-                button.textContent = 'Ajouter';
+                button.textContent = button.textContent = '🛒';
                 button.className = 'add-button';
                 button.onclick = function() { addToShoppingList(nom, quantite); };
                 
