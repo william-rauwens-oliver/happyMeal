@@ -1,54 +1,40 @@
-fetch("../assets/json/recettes.json")
-  .then(response => response.json())
-  .then(data => {
-    const recettes = data.recettes;
-    const recettesParPage = 9;
-    let pageActuelle = 1;
+document.addEventListener("DOMContentLoaded", function () {
+    const recette1 = document.getElementById("recette1");
+    const recette2 = document.getElementById("recette2");
+    const recette3 = document.getElementById("recette3");
 
-    function afficherRecettes(page) {
-      const debut = (page - 1) * recettesParPage;
-      const fin = debut + recettesParPage;
-      const recettesPage = recettes.slice(debut, fin);
+    fetch("../assets/json/data.json")
+        .then(response => response.json())
+        .then(data => {
+            const randomRecettes = getRandomRecettes(data.recettes, 3);
 
-      const recettesContainer = document.getElementById('recettes-container');
-      recettesContainer.innerHTML = '';
-      recettesPage.forEach(recette => {
-        const recetteElement = document.createElement('div');
-        recetteElement.classList.add('recette');
-        recetteElement.innerHTML = `
-          <h2>${recette.nom}</h2>
-          <p><strong>Catégorie:</strong> ${recette.categorie}</p>
-          <p><strong>Temps de préparation:</strong> ${recette.temps_preparation}</p>
-          <p><strong>Ingrédients:</strong></p>
-          <ul>
-            ${recette.ingredients.map(ingredient => `<li>${ingredient.nom} - ${ingredient.quantite}</li>`).join('')}
-          </ul>
-          <p><strong>Étapes:</strong></p>
-          <ol>
-            ${recette.etapes.map(etape => `<li>${etape}</li>`).join('')}
-          </ol>
-        `;
-        recettesContainer.appendChild(recetteElement);
-      });
-    }
+            afficherRecette(randomRecettes[0], recette1);
+            afficherRecette(randomRecettes[1], recette2);
+            afficherRecette(randomRecettes[2], recette3);
+        })
+        .catch(error => console.error("Une erreur s'est produite lors de la récupération des données JSON:", error));
+});
 
-    afficherRecettes(pageActuelle);
+function getRandomRecettes(recettes, nombre) {
+    const shuffled = recettes.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, nombre);
+}
 
-    function changerPage(nouvellePage) {
-      if (nouvellePage < 1 || nouvellePage > Math.ceil(recettes.length / recettesParPage)) {
-        return;
-      }
-      pageActuelle = nouvellePage;
-      afficherRecettes(pageActuelle);
-    }
-
-    const paginationContainer = document.getElementById('pagination');
-    const nombrePages = Math.ceil(recettes.length / recettesParPage);
-    for (let i = 1; i <= nombrePages; i++) {
-      const bouton = document.createElement('button');
-      bouton.textContent = i;
-      bouton.addEventListener('click', () => changerPage(i));
-      paginationContainer.appendChild(bouton);
-    }
-  })
-  .catch(error => console.error('Une erreur s\'est produite lors de la récupération des données JSON:', error));
+function afficherRecette(recette, element) {
+    const html = 
+        <div class="recette">
+            <h3>${recette.nom}</h3>
+            <p>Catégorie: ${recette.categorie}</p>
+            <p>Temps de préparation: ${recette.temps_preparation}</p>
+            <h4>Ingrédients:</h4>
+            <ul>
+                ${recette.ingredients.map(ingredient => <li>${ingredient.nom} - ${ingredient.quantite}</li>).join("")}
+            </ul>
+            <h4>Étapes:</h4>
+            <ol class="etapes">
+                ${recette.etapes.map(etape => <li>${etape}</li>).join("")}
+            </ol>
+        </div>
+    ;
+    element.innerHTML = html;
+}
