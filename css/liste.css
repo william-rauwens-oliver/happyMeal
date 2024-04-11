@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(238, 234, 234); 
+    color: #363636;
+    margin: 0;
+    padding: 20px;
+}
+
+#ingredients-container, #shopping-list-container {
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 600px;
+    max-height: 500px;
+    overflow: auto;
+    border: 1px solid #E5E5E5;
+}
+
+h1, h2 {
+    color: #333333;
+    text-align: center; 
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+}
+
+.ingredient-item, li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #E5E5E5; 
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s; 
+}
+
+.add-button {
+    background-color: #272726; 
+    color: #FFFFFF;
+}
+
+.delete-button {
+    background-color: #DC3545; 
+    color: #FFFFFF;
+}
+
+.add-button:hover, .delete-button:hover {
+    transform: scale(1.05); 
+}
+
+#generate-download {
+    background-color: #6C757D; 
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto; 
+    width: auto;
+}
+#shopping-list{
+    max-width: 400px;
+    display: flex;
+    margin: 20px auto;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+}
+#generate-download:hover {
+    background-color: #5A6268; 
+    opacity: 0.2;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .ingredient-item, li {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    button {
+        margin-top: 5px;
+    }
+}
