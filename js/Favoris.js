@@ -1,6 +1,6 @@
 async function chargerFavoris() {
   try {
-      const response = await fetch('assets/json/favoris.json');
+      const response = await fetch('../assets/json/favoris.json');
       if (!response.ok) {
           throw new Error('Impossible de charger les recettes favorites.');
       }
