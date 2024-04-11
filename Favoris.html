@@ -10,33 +10,34 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="m-4">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <a href="#" class="navbar-brand"><img src="/assets/img/logo2.svg" alt=""></a>
-                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="index.html" class="nav-item nav-link">Recette</a>
-                            <a href="index.html" class="nav-item nav-link">Recette Pagination</a>
-                            <div class="nav-item dropdown"></div>
+    <div class="m-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand"><img src="/assets/img/logo2.svg" alt=""></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="index.html" class="nav-item nav-link active ">Home</a>
+                        <a href="index.html" class="nav-item nav-link ">Recette</a>
+                        <a href="index.html" class="nav-item nav-link">Recette Pagination</a>
+                        <a href="Favoris.html" class="nav-item nav-link">Voir Mes Favoris</a>
+                        <div class="nav-item dropdown">
                         </div>
-                        <form class="d-flex" autocomplete="off">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="search-input" placeholder="Search">
-                                <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
-                            </div>
-                            <div id="autocomplete-list" class="autocomplete-items"></div>
-                        </form>
                     </div>
+                    <form class="d-flex" autocomplete="off">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="search-input" placeholder="Search"
+                                onkeyup="searchRecipe(this.value)">
+                            <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
+                        </div>
+                        <div id="autocomplete-list" class="autocomplete-items"></div>
+                    </form>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
+    </div>
 
         <h1 class="text-center mb-4">Recettes favorites</h1>
         <div class="row" id="favoris">

@@ -36,7 +36,7 @@
          "temps_preparation":"30 minutes",
          "ingredients":[
             {
-               "nom":"quinoa",
+               "nom":"Quinoa",
                "quantite":"200g"
             },
             {
@@ -56,8 +56,8 @@
                "quantite":"10g"
             },
             {
-               "nom":"Huile d'olive",
-               "quantite":"10g"
+               "nom":"Feuilles de basilic frais",
+               "quantite":"1 bouquet"
             }
          ],
          "etapes":[
@@ -67,7 +67,46 @@
             "Assaisonnez avec du jus de citron, du sel, du poivre et des feuilles de basilic frais.",
             "Servez la salade de quinoa aux légumes grillés, chaude ou froide."
          ]
+      },
+      {
+         "nom":"Soupe de lentilles",
+         "categorie":"Entrée",
+         "temps_preparation":"1 heure",
+         "ingredients":[
+            {
+               "nom":"Lentilles",
+               "quantite":"250g"
+            },
+            {
+               "nom":"Oignon",
+               "quantite":"3"
+            },
+            {
+               "nom":"Carottes",
+               "quantite":"50g"
+            },
+            {
+               "nom":"Céleri",
+               "quantite":"10g"
+            },
+            {
+               "nom":"Beurre",
+               "quantite":"10g"
+            },
+            {
+               "nom":"Huile d'olive",
+               "quantite":"10g"
+            }
+         ],
+         "etapes":[
+            "Dans une casserole, faites chauffer un peu d'huile d'olive.",
+            "Faites revenir l'oignon haché, l'ail émincé, les carottes et le céleri coupés en dés pendant quelques minutes.",
+            "Ajoutez les lentilles et mélangez bien.",
+            "Versez le bouillon de légumes dans la casserole et portez à ébullition.",
+            "Réduisez le feu et laissez mijoter pendant environ 40 minutes, jusqu'à ce que les lentilles soient tendres.",
+            "Assaisonnez avec du sel et du poivre selon votre goût.",
+            "Servez chaud, garni de feuilles de coriandre fraîche."
+         ]
       }
    ]
 }
-
