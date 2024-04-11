@@ -19,11 +19,18 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="index.html" class="nav-item nav-link active ">Home</a>
+                    <a href="#" class="nav-item nav-link active ">Home</a>
                     <a href="#" class="nav-item nav-link ">Recette</a>
-                    <a href="#" class="nav-item nav-link">Recette Pagination</a>
+                    <a href="recettes.html" class="nav-item nav-link">Recette Pagination</a>
                     <div class="nav-item dropdown">
   
+                    </div>
+                </div>
+                <form class="d-flex" autocomplete="off">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="search-input" placeholder="Search"
+                            onkeyup="searchRecipe(this.value)">
+                        <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
                     </div>
                     <div id="autocomplete-list" class="autocomplete-items"></div>
                 </form>
