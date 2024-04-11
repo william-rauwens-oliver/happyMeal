@@ -1,4 +1,4 @@
-fetch("../assets/json/recettes.json")
+fetch("../assets/json/data.json")
   .then(response => response.json())
   .then(data => {
     const recettes = data.recettes;
@@ -50,5 +50,14 @@ fetch("../assets/json/recettes.json")
       bouton.addEventListener('click', () => changerPage(i));
       paginationContainer.appendChild(bouton);
     }
+    document.querySelectorAll('#pagination button').forEach(button => {
+      button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+    
   })
   .catch(error => console.error('Une erreur s\'est produite lors de la récupération des données JSON:', error));
+
+
+  
