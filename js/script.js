@@ -21,20 +21,20 @@ function getRandomRecettes(recettes, nombre) {
 }
 
 function afficherRecette(recette, element) {
-    const html = 
+    const html = `
         <div class="recette">
             <h3>${recette.nom}</h3>
             <p>Catégorie: ${recette.categorie}</p>
             <p>Temps de préparation: ${recette.temps_preparation}</p>
             <h4>Ingrédients:</h4>
             <ul>
-                ${recette.ingredients.map(ingredient => <li>${ingredient.nom} - ${ingredient.quantite}</li>).join("")}
+                ${recette.ingredients.map(ingredient => `<li>${ingredient.nom} - ${ingredient.quantite}</li>`).join("")}
             </ul>
             <h4>Étapes:</h4>
             <ol class="etapes">
-                ${recette.etapes.map(etape => <li>${etape}</li>).join("")}
+                ${recette.etapes.map(etape => `<li>${etape}</li>`).join("")}
             </ol>
         </div>
-    ;
+    `;
     element.innerHTML = html;
 }
