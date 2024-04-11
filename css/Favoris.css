@@ -1,26 +1,22 @@
-body {
-    background-color: #f8f9fa;
-    margin: 0;
-}
-
-.container {
-    margin-top: 50px;
-    padding: 0 15px;
-}
-
-.card {
+.recette {
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #ddd;
     transition: box-shadow 0.3s ease;
     margin-bottom: 20px;
+    width: 80%; /* Ajout d'une largeur pour mieux centrer le contenu */
+    padding: 20px; /* Ajout de padding pour l'espace intérieur */
+    display: flex; /* Utilisation de flexbox pour organiser le contenu */
+    flex-direction: column; /* Organiser les éléments en colonnes */
+    justify-content: space-between; /* Répartir l'espace entre les éléments */
+    margin: 20px auto; /* Centrer horizontalement et ajouter de la marge en haut et en bas */
 }
 
-.card:hover {
+.recette:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.autocomplete-items {
+.recette-items {
     position: absolute;
     border: 1px solid #d4d4d4;
     border-bottom: none;
@@ -79,18 +75,6 @@ footer > p {
     flex-wrap: wrap;
 }
 
-.star {
-    width: 64px;
-    position: absolute;
-    right: 30%;
-    border: none;
-    background-color: white;
-    top: 10px;
-}
-
-.star-fav {
-    fill: yellow;
-}
 #favoris {
     padding: 0 50px; 
 }
