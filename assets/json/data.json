@@ -237,10 +237,18 @@
          "categorie":"Dessert",
          "temps_preparation":"20 minutes",
          "ingredients":[
-            "Fruits variés (fraises, kiwis, oranges, raisins, etc.), coupés en morceaux",
-            "Jus d'orange ou de citron",
-            "Miel ou sirop d'érable (facultatif)",
-            "Feuilles de menthe fraîche pour garnir"
+            {
+               "nom":"Fruits variés (fraises, kiwis, oranges, raisins, etc.), coupés en morceaux",
+               "quantite":"(Quantité aux choix)"
+            },
+            {
+               "nom":"Miel ou sirop d'érable (facultatif)",
+               "quantite":"5cl"
+            },
+            {
+               "nom":"Feuilles de menthe fraîche pour garnir",
+               "quantite":"2-3"
+            }
          ],
          "etapes":[
             "Coupez tous les fruits en morceaux de taille similaire et placez-les dans un grand bol.",
