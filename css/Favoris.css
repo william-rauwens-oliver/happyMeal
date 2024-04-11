@@ -5,7 +5,7 @@ body {
 
 .container {
     margin-top: 50px;
-    padding: 0 15px; /* Ajout de padding */
+    padding: 0 15px;
 }
 
 .card {
@@ -13,7 +13,7 @@ body {
     border-radius: 10px;
     border: 1px solid #ddd;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 20px; /* Ajout de margin-bottom */
+    margin-bottom: 20px;
 }
 
 .card:hover {

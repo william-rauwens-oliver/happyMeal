@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Une erreur s'est produite lors de la récupération des données JSON:", error));
 
-    // Charger les recettes favorites à partir du stockage local du navigateur
     let recettesFavorites = JSON.parse(localStorage.getItem("recettesFavorites")) || [];
 
     function getRandomRecettes(recettes, nombre) {
@@ -53,14 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
             recettesFavorites = recettesFavorites.filter(recette => recette.nom !== nomRecette);
         }
 
-        // Enregistrer les recettes favorites dans le stockage local du navigateur
         localStorage.setItem("recettesFavorites", JSON.stringify(recettesFavorites));
 
-        // Mettre à jour l'icône d'étoile pour refléter l'état de favoris
         element.querySelector('i').classList.toggle('text-warning', !enFavoris);
     }
 
-    // Fonction utilitaire pour vérifier si une recette est en favoris
     function estEnFavoris(nomRecette) {
         return recettesFavorites.some(recette => recette.nom === nomRecette);
     }
