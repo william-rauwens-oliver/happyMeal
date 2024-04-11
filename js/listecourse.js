@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('ingredients-container');
             for (const [nom, quantite] of Object.entries(uniqueIngredients)) {
                 const button = document.createElement('button');
-                button.textContent = button.textContent = '🛒';
+                button.innerHTML = '🛒';
                 button.className = 'add-button';
                 button.onclick = function() { addToShoppingList(nom, quantite); };
                 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let listContent = "";
 
         listItems.forEach(item => {
-            listContent += `${item.textContent.trim()}\n`;
+            listContent += `${item.textContent.replace('🗑️', '').trim()}\n`; 
         });
 
         if(listContent) {
@@ -53,10 +53,10 @@ function addToShoppingList(item, quantite) {
     if (!addedIngredients.has(item)) {
         const list = document.getElementById('shopping-list');
         const listItem = document.createElement('li');
-        listItem.textContent = `${item}: ${quantite}`;
+        listItem.textContent = `${item}: ${quantite} `;
         
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Supprimer';
+        deleteButton.innerHTML = '🗑️'; 
         deleteButton.className = 'delete-button';
         deleteButton.onclick = function() {
             list.removeChild(listItem);
@@ -67,8 +67,11 @@ function addToShoppingList(item, quantite) {
         list.appendChild(listItem);
 
         addedIngredients.add(item);
+
+        // Faites défiler la liste vers le bas pour afficher le nouvel élément
+        list.scrollTop = list.scrollHeight;
     } else {
-        console.log(`${item} est déjà dans votre liste de courses.`);
+        alert(`${item} est déjà dans votre liste de courses.`);
     }
 }
 
