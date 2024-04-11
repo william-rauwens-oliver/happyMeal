@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recettes favorites</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            padding: 32px;
+        }
+
+        footer>nav>a {
+            text-decoration: none;
+            color: black;
+        }
+
+        footer>nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .bar {
+            width: 60%;
+            height: 1px;
+            background-color: rgb(223, 223, 223);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        footer>p {
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="m-4">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand"><img src="/assets/img/logo2.svg" alt=""></a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="#" class="nav-item nav-link active">Home</a>
+                            <a href="#" class="nav-item nav-link">Recette</a>
+                            <a href="#" class="nav-item nav-link">Recette Pagination</a>
+                            <div class="nav-item dropdown"></div>
+                        </div>
+                        <form class="d-flex" autocomplete="off">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="search-input" placeholder="Search">
+                                <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
+                            </div>
+                            <div id="autocomplete-list" class="autocomplete-items"></div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <h1 class="text-center mb-4">Recettes favorites</h1>
+        <div class="row" id="favoris">
+          
+        </div>
+    </div>
+
+    <footer class="footer">
+        <nav>
+            <a href="">Accueil</a>
+            <a href="">Recette</a>
+            <a href="">Recette Pagination</a>
+        </nav>
+        <div class="bar"></div>
+        <p>© 2021 Compagny Inc</p>
+    </footer>
+
+    <script src="Favoris.js"></script>
+</body>
+</html>
