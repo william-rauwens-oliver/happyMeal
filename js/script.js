@@ -1,29 +1,29 @@
-// Ajout d'une recette aux favoris
+
 function addToFavorites(element, nomRecette) {
-    // Récupérer les favoris existants depuis localStorage
+    
     let recettesFavorites = JSON.parse(localStorage.getItem("recettesFavorites")) || [];
 
-    // Vérifier si la recette est déjà dans les favoris
+    
     if (recettesFavorites.some(recette => recette.nom === nomRecette)) {
         console.log("La recette est déjà dans les favoris.");
         return;
     }
 
-    // Récupérer les détails de la recette depuis data.json
+    
     getRecipeDetails(nomRecette)
         .then(recette => {
-            // Ajouter la recette aux favoris
+            
             recettesFavorites.push(recette);
-            // Mettre à jour l'icône d'étoile
+          
             element.querySelector('i').classList.add('text-warning');
-            // Enregistrer les favoris dans localStorage
+            
             localStorage.setItem("recettesFavorites", JSON.stringify(recettesFavorites));
             console.log('La recette', nomRecette, 'a été ajoutée aux favoris');
         })
         .catch(error => console.error("Une erreur s'est produite lors de l'ajout de la recette aux favoris:", error));
 }
 
-// Récupérer les détails d'une recette
+
 function getRecipeDetails(nomRecette) {
     return fetch("../assets/json/data.json")
         .then(response => response.json())
@@ -33,13 +33,13 @@ function getRecipeDetails(nomRecette) {
         .catch(error => console.error("Une erreur s'est produite lors de la récupération des détails de la recette:", error));
 }
 
-// Événement déclenché lorsque le DOM est entièrement chargé
+
 document.addEventListener("DOMContentLoaded", function () {
     const recette1 = document.getElementById("recette1");
     const recette2 = document.getElementById("recette2");
     const recette3 = document.getElementById("recette3");
 
-    // Récupérer les recettes aléatoires et les afficher
+    
     fetch("../assets/json/data.json")
         .then(response => response.json())
         .then(data => {
@@ -51,13 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Une erreur s'est produite lors de la récupération des données JSON:", error));
 
-    // Fonction pour obtenir un nombre aléatoire de recettes
+    
     function getRandomRecettes(recettes, nombre) {
         const shuffled = recettes.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, nombre);
     }
 
-    // Fonction pour afficher une recette
+    
     function afficherRecette(recette, element) {
         const html = `
             <div class="recette">
@@ -80,15 +80,15 @@ document.addEventListener("DOMContentLoaded", function () {
         element.innerHTML = html;
     }
 
-    // Afficher les recettes favorites sur la page Favoris.html
+    
     const favorisContainer = document.getElementById("favoris");
 
-    // Récupérer les recettes favorites depuis le localStorage
+   
     let recettesFavorites = JSON.parse(localStorage.getItem("recettesFavorites")) || [];
 
-    // Vérifier si des recettes favorites existent
+   
     if (recettesFavorites.length > 0) {
-        // Parcourir les recettes favorites et les afficher
+      
         recettesFavorites.forEach(recette => {
             const recetteHTML = `
                 <div class="recette">
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             favorisContainer.innerHTML += recetteHTML;
         });
     } else {
-        // Si aucune recette favorite n'est disponible, afficher un message
+        
         favorisContainer.innerHTML = "<p>Aucune recette favorite pour le moment.</p>";
     }
 });
