@@ -66,3 +66,6 @@ body{
 .star-fav{
   fill: yellow;
 }
+.navbar-brand{
+  padding: 1px;
+}
